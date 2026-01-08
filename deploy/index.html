@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Info</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="description" content="unify apps personal details form assignment" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Personal Info</h1>
+        <p class="subtitle">Update your personal details here</p>
+
+        <form class="form" id="userForm" name="main-form">
+            <!-- Name Field -->
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your email address" required
+                    autocomplete="email" />
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Your age" required min="1" max="150" />
+                </div>
+
+                <div class="field">
+                    <label for="telephone">Phone no.</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="Your phone no." required
+                        pattern="[0-9]{7,15}" minlength="7" maxlength="15" autocomplete="tel" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="">Your country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Japan">Japan</option>
+                    <option value="China">China</option>
+                </select>
+            </div>
+
+            <!-- Gender Radio Buttons -->
+            <fieldset class="field">
+                <legend>Gender</legend>
+                <div class="gender">
+                    <label class="pill">
+                        <input type="radio" id="gender-male" name="gender" value="Male" required />
+                        Male
+                    </label>
+                    <label class="pill">
+                        <input type="radio" id="gender-female" name="gender" value="Female" />
+                        Female
+                    </label>
+                    <label class="pill">
+                        <input type="radio" id="gender-other" name="gender" value="Other" />
+                        Other
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Tech Stack Checkboxes -->
+            <fieldset class="field">
+                <legend>Tech Stack</legend>
+                <div class="multiselect">
+                    <label>
+                        <input type="checkbox" name="techStack" value="HTML" />
+                        HTML
+                    </label>
+                    <label>
+                        <input type="checkbox" name="techStack" value="CSS" />
+                        CSS
+                    </label>
+                    <label>
+                        <input type="checkbox" name="techStack" value="JS" />
+                        JS
+                    </label>
+                    <label>
+                        <input type="checkbox" name="techStack" value="React" />
+                        React
+                    </label>
+                    <label>
+                        <input type="checkbox" name="techStack" value="React Native" />
+                        React Native
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="field">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Your address" required rows="4"
+                    autocomplete="street-address"></textarea>
+            </div>
+
+            <div id="formError" class="error-message" role="alert"></div>
+
+            <div class="actions">
+                <button type="reset" class="btn-outline">Reset</button>
+                <button type="submit" class="btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Result Table -->
+    <div id="resultContainer" class="result-container" style="display: none;">
+        <div class="success-message">
+            ✓ Form submitted successfully!
+        </div>
+        <h2 class="result-title">Submitted Data</h2>
+
+        <table class="result-table">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td id="result-name">-</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="result-email">-</td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td id="result-age">-</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td id="result-telephone">-</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td id="result-country">-</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td id="result-gender">-</td>
+                </tr>
+                <tr>
+                    <td>Tech Stack</td>
+                    <td id="result-techstack">-</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td id="result-address">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script defer src="script.js"></script>
+</body>
+
+</html>
